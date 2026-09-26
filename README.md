@@ -85,15 +85,15 @@ python src/translate.py \\
 ## Model Checkpoints
 
 Fine-tuned LoRA adapter weights available at:
-[HuggingFace Hub — [username]/HinglishDB](https://huggingface.co/[username]/HinglishDB)
+[HuggingFace Hub — Alex-24816/HinglishDB](https://huggingface.co/Alex-24816/HinglishDB)
 
 ## Citation
 
 If you use HinglishDB in your work, please cite:
 
 ```bibtex
-@article{bhagat2026hinglishdb,
-  author  = {Singh, Vikram and Bhagat, Aniruddha and Kumar, Lov},
+@article{Vikram2026hinglishdb,
+  author  = {Singh, Vikram and Bhagat, Aniruddha},
   title   = {Generalizing Data Retrieval through a Hinglish-to-SQL Framework},
   journal = {Language Resources and Evaluation},
   publisher = {Springer Nature},
