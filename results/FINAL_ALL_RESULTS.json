@@ -1,0 +1,98 @@
+{
+  "paper": "HinglishDB",
+  "model": "Qwen-2.5-Coder-3B",
+  "EX1_prompt_design": {
+    "create_table": {
+      "bleu": 20.39,
+      "sqam": 0.319,
+      "tsed": 0.308,
+      "ckpt": "ck-125"
+    },
+    "serialized": {
+      "bleu": 14.14,
+      "sqam": 0.255,
+      "tsed": 0.281,
+      "ckpt": "ck-25"
+    },
+    "winner": "CREATE TABLE",
+    "darija_reference": {
+      "create_table": {
+        "bleu": 36.2,
+        "sqam": 0.483,
+        "tsed": 0.286
+      },
+      "serialized": {
+        "bleu": 32.5,
+        "sqam": 0.472,
+        "tsed": 0.22
+      }
+    }
+  },
+  "EX2_english_vs_hinglish": {
+    "english_ck25": {
+      "bleu": 12.63,
+      "sqam": 0.241,
+      "tsed": 0.285
+    },
+    "english_ck175": {
+      "bleu": 22.71,
+      "sqam": 0.326,
+      "tsed": 0.405
+    },
+    "hinglish_ck125": {
+      "bleu": 20.39,
+      "sqam": 0.319,
+      "tsed": 0.308
+    },
+    "gap_hinglish_vs_best_english": {
+      "bleu": -2.32,
+      "sqam": -0.007,
+      "tsed": -0.097
+    },
+    "note": "Undertrained English (ck-25) shows Hinglish winning (+7.76 BLEU). Converged English (ck-175) outperforms Hinglish (-2.32 BLEU). Gap much smaller than DarijaDB (-10.1 BLEU) due to Hinglish English token overlap."
+  },
+  "EX3_multilingual": {
+    "hinglish_only": {
+      "bleu": 20.39,
+      "sqam": 0.319,
+      "tsed": 0.308
+    },
+    "hindi_only": {
+      "bleu": 18.2,
+      "sqam": 0.276,
+      "tsed": 0.289
+    },
+    "english_only": {
+      "bleu": 22.71,
+      "sqam": 0.326,
+      "tsed": 0.405
+    },
+    "hindi_hinglish": {
+      "bleu": 21.2,
+      "sqam": 0.319,
+      "tsed": 0.348
+    },
+    "english_hinglish": {
+      "bleu": 20.91,
+      "sqam": 0.296,
+      "tsed": 0.344
+    },
+    "english_hindi_hinglish": {
+      "bleu": 22.88,
+      "sqam": 0.329,
+      "tsed": 0.374
+    },
+    "best_combination": "english_hindi_hinglish",
+    "key_findings": [
+      "English+Hindi+Hinglish best on BLEU/SQAM (mirrors DarijaDB multilingual finding)",
+      "English-only best on TSED \u2014 structural accuracy declines when adding multilingual data",
+      "Hindi+Hinglish > English+Hinglish on BLEU \u2014 related languages help more than distant ones",
+      "Adding all three gives best BLEU but not TSED \u2014 consistent with DarijaDB Table 7 pattern"
+    ]
+  },
+  "indicdb_comparison": {
+    "hinglish_ex_drop_frontier_models": -6.87,
+    "our_hinglish_vs_english_gap_bleu": -2.32,
+    "note": "Our fine-tuned 3B model shows smaller Hinglish-English gap (-2.32 BLEU) than IndicDB frontier models (-6.87% EX), suggesting fine-tuning specifically closes the Hinglish gap more effectively than prompting larger models"
+  }
+}
